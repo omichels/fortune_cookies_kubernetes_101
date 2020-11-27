@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "checkmkaks-20ee"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "checkmkaks-20ee"
+  template:
+    metadata:
+      labels:
+        app: "checkmkaks-20ee"
+    spec:
+      containers:
+        - name: "checkmkaks-20ee"
+          image: "iitmonitoringregistry.azurecr.io/checkmkaks"
+          ports:
+          - containerPort: 80
