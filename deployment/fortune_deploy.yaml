@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fortune-deployment
+  labels:
+    app: fortune
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fortune
+  template:
+    metadata:
+      labels:
+        app: fortune
+    spec:
+      containers:
+      - name: fortune
+        image: iitmonitoringregistry.azurecr.io/fortune-cookies/fortune:latest
+        ports:
+        - containerPort: 80
+
